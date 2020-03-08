@@ -24,3 +24,5 @@ Now we create the service layer, where we'll define the following operations:
 - Money deposit
 - Money withdrawal
 - Money transfer between accounts
+
+After this, we define a REST API that allows a client to perform these operations on the system. No authentication is checked since that's beyond the scope of this exercise.
