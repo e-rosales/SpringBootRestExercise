@@ -17,3 +17,10 @@ To convert between the CurrencyUnit and Money Java types and SQL Types, I opted 
 Now we create a JPA CrudRepository to manipulate the entities in the database.
 
 With this we'll begin creating unit tests to test the Data Access layer. We'll only test the methods that we implemented, since we trust that the inherited methods from the CrudRepository library will work.
+
+Now we create the service layer, where we'll define the following operations:
+
+- Account creation
+- Money deposit
+- Money withdrawal
+- Money transfer between accounts
