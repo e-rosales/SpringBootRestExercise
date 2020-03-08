@@ -11,3 +11,5 @@ To start off we create the Spring Boot project using the Spring Initializr (http
 We'll begin by setting up the database and the model object 'Account'.
 
 For the account money-related properties, I'll be using the Joda Money library, which provides classes for currency and money management as well as useful methods for obtaining a valid currency and modifying the amount of money in an account.
+
+To convert between the CurrencyUnit and Money Java types and SQL Types, I opted to declare these complex types as transient and use the String and Double types to map these properties with database columns, then use these to create the complex objects at runtime. This is not the best solution but it's easy and quick to implement, if time were less an issue a better approach would be to use AttributeConverter implementations to convert between db and Java types.

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
@@ -25,9 +26,13 @@ public class Account {
 
 	private Integer id;
 	private String name;
+	private Boolean treasury;
+	private String currencyString;
+	private Double moneyDouble;
+	
+	// Complex types
 	private CurrencyUnit currency;
 	private Money money;
-	private Boolean treasury;
 
 	// Empty constructor required by JPA
 	public Account() {
@@ -66,33 +71,51 @@ public class Account {
 	}
 
 	/**
-	 * @return the currency
+	 * @return the currencyString
 	 */
 	@Column(name = "currency", nullable = false)
+	public String getCurrencyString() {
+		return currencyString;
+	}
+
+	/**
+	 * @param currencyString the currencyString to set
+	 */
+	public void setCurrencyString(String currencyString) {
+		this.currencyString = currencyString;
+		this.currency = CurrencyUnit.of(currencyString);
+	}
+
+	/**
+	 * @return the moneyDouble
+	 */
+	@Column(name = "money", nullable = false)
+	public Double getMoneyDouble() {
+		return moneyDouble;
+	}
+
+	/**
+	 * @param moneyDouble the moneyDouble to set
+	 */
+	public void setMoneyDouble(Double moneyDouble) {
+		this.moneyDouble = moneyDouble;
+		this.money = Money.of(currency, moneyDouble);
+	}
+
+	/**
+	 * @return the currency
+	 */
+	@Transient
 	public CurrencyUnit getCurrency() {
 		return currency;
 	}
 
 	/**
-	 * @param currency the currency to set
-	 */
-	public void setCurrency(CurrencyUnit currency) {
-		this.currency = currency;
-	}
-
-	/**
 	 * @return the money
 	 */
-	@Column(name = "money", nullable = false)
+	@Transient
 	public Money getMoney() {
 		return money;
-	}
-
-	/**
-	 * @param money the money to set
-	 */
-	public void setMoney(Money money) {
-		this.money = money;
 	}
 
 	/**
