@@ -38,6 +38,15 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
+	public Account find(String name) throws AccountNotFoundException {
+		Account found = repository.findByName(name);
+		if (found == null) {
+			throw new AccountNotFoundException();
+		}
+		return found;
+	}
+
+	@Override
 	public void deposit(String accountName, Double amount) throws AccountNotFoundException {
 		Account account = repository.findByName(accountName);
 		if (account == null) {

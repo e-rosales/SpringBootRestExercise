@@ -32,6 +32,15 @@ public interface AccountService {
 	void create(String name, String currency, Boolean treasury) throws AccountAlreadyExistsException;
 
 	/**
+	 * Return the info of an {@link Account} associated to the given name.
+	 * 
+	 * @param name The name of the account to find.
+	 * @throws AccountNotFoundException If the name is not associated to any
+	 *                                  account.
+	 */
+	Account find(String name) throws AccountNotFoundException;
+
+	/**
 	 * Increments the money of the account associated to the given name by the
 	 * amount indicated.
 	 * 
