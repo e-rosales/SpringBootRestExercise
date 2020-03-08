@@ -7,3 +7,5 @@ To start off we create the Spring Boot project using the Spring Initializr (http
 - Spring Web (for MVC architecture and embedded Tomcat server)
 - Spring Data JPA (for use of persistence APIs such as Spring Data and Hibernate)
 - H2 Database (for embedded database for quick and easy testing)
+
+We'll begin by setting up the database and the model object 'Account'.
