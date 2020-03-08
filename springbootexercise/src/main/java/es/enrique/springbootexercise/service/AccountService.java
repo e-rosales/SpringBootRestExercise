@@ -37,8 +37,10 @@ public interface AccountService {
 	 * 
 	 * @param accountName The account name in which to deposit the money.
 	 * @param amount      The amount of money to deposit.
+	 * @throws AccountNotFoundException If the given name is not associated to any
+	 *                                  account.
 	 */
-	void deposit(String accountName, Double amount);
+	void deposit(String accountName, Double amount) throws AccountNotFoundException;
 
 	/**
 	 * Decreases the money of the account associated to the given name by the amount
@@ -52,8 +54,10 @@ public interface AccountService {
 	 * @throws NegativeBalanceException If the withdrawal makes the account's
 	 *                                  balance go below 0 and it's not a treasury
 	 *                                  account.
+	 * @throws AccountNotFoundException If the given name is not associated to any
+	 *                                  account.
 	 */
-	void withdraw(String accountName, Double amount) throws NegativeBalanceException;
+	void withdraw(String accountName, Double amount) throws NegativeBalanceException, AccountNotFoundException;
 
 	/**
 	 * Transfers the indicated amount of money from the first given account to the
@@ -68,7 +72,10 @@ public interface AccountService {
 	 * @throws NegativeBalanceException If the withdrawal makes the account's
 	 *                                  balance go below 0 and it's not a treasury
 	 *                                  account.
+	 * @throws AccountNotFoundException If the given name is not associated to any
+	 *                                  account.
 	 */
-	void transfer(String accountFrom, String accountTo, Double amount) throws NegativeBalanceException;
+	void transfer(String accountFrom, String accountTo, Double amount)
+			throws NegativeBalanceException, AccountNotFoundException;
 
 }

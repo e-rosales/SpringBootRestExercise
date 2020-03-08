@@ -29,7 +29,7 @@ public class Account {
 	private Boolean treasury;
 	private String currencyString;
 	private Double moneyDouble;
-	
+
 	// Complex types
 	private CurrencyUnit currency;
 	private Money money;
@@ -111,11 +111,25 @@ public class Account {
 	}
 
 	/**
+	 * @param currency the currency to set
+	 */
+	public void setCurrency(CurrencyUnit currency) {
+		this.currency = currency;
+	}
+
+	/**
 	 * @return the money
 	 */
 	@Transient
 	public Money getMoney() {
 		return money;
+	}
+
+	/**
+	 * @param money the money to set
+	 */
+	public void setMoney(Money money) {
+		this.money = money;
 	}
 
 	/**
