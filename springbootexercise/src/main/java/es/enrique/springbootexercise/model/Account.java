@@ -115,6 +115,7 @@ public class Account {
 	 */
 	public void setCurrency(CurrencyUnit currency) {
 		this.currency = currency;
+		this.currencyString = currency.getCode();
 	}
 
 	/**
@@ -130,6 +131,7 @@ public class Account {
 	 */
 	public void setMoney(Money money) {
 		this.money = money;
+		this.moneyDouble = money.getAmount().doubleValue();
 	}
 
 	/**

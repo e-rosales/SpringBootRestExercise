@@ -56,7 +56,6 @@ public class AccountServiceImpl implements AccountService {
 
 		account.setMoney(account.getMoney().plus(amount));
 		repository.save(account);
-
 	}
 
 	@Override
