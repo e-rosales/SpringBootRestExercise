@@ -26,3 +26,15 @@ Now we create the service layer, where we'll define the following operations:
 - Money transfer between accounts
 
 After this, we define a REST API that allows a client to perform these operations on the system. No authentication is checked since that's beyond the scope of this exercise.
+
+Sadly I ran out of time before being able to implement the controller test cases within the 4 hour time limit. I hope everything else is okay, the basics requirements have been met and data access and service layer testing was implemented.
+
+As some final thoughts, I must say the time limit was an issue. I'm not as fluent as I would like with test cases, I spent too much time implementing them, trying and testing them.
+
+Some improvements that could be made:
+
+- Better implementation of the model, with a more optimal mapping with the database.
+- Unit testing should use mock components rather than actual implementations.
+- REST controller should define better how it handles operations that can't be done, returning an actual error message explaining that the account already exists, etc.
+- Implement testing for the REST controller.
+- And more, as always.

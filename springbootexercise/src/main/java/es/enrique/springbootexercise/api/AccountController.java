@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,7 +56,7 @@ public class AccountController {
 	 *                 Defaults to false.
 	 * @return The newly created account as a ResponseBody.
 	 */
-	@GetMapping("create")
+	@PostMapping("create")
 	public ResponseEntity<Account> create(@RequestParam(value = "name") String name,
 			@RequestParam(value = "currency") String currency,
 			@RequestParam(value = "treasury", defaultValue = "false") boolean treasury) {
@@ -78,7 +79,7 @@ public class AccountController {
 	 * @param money The amount of money to increase.
 	 * @return The account as a ResponseBody.
 	 */
-	@GetMapping("deposit")
+	@PostMapping("deposit")
 	public ResponseEntity<Account> deposit(@RequestParam(value = "name") String name,
 			@RequestParam(value = "money") double money) {
 		try {
@@ -101,7 +102,7 @@ public class AccountController {
 	 * @param money The amount of money to withdraw.
 	 * @return The account as a ResponseBody.
 	 */
-	@GetMapping("withdraw")
+	@PostMapping("withdraw")
 	public ResponseEntity<Account> withdraw(@RequestParam(value = "name") String name,
 			@RequestParam(value = "money") double money) {
 		try {
@@ -128,7 +129,7 @@ public class AccountController {
 	 * @param money           The amount of money to transfer.
 	 * @return The account as a ResponseBody.
 	 */
-	@GetMapping("transfer")
+	@PostMapping("transfer")
 	public ResponseEntity<Account> transfer(@RequestParam(value = "nameAccountFrom") String nameAccountFrom,
 			@RequestParam(value = "nameAccountTo") String nameAccountTo, @RequestParam(value = "money") double money) {
 		try {
